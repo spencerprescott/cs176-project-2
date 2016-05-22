@@ -9,7 +9,7 @@ str_response = """<!DOCTYPE html>
 					 <title>404</title>
 					</head>
 					<body>
-					 <h1>Page Not Found</h1>
+					 <h1>Error 404: Page Not Found</h1>
 					</body>
 					</html>"""
 content_length = len(str_response.encode('utf-8'))
