@@ -1,14 +1,21 @@
 #TODO: Add content length and date
-NOT_FOUND = """HTTP/1.0 404 Not Found\r\nContent-Type: text/html\r\n\r\n
-				<!DOCTYPE html>
-				<html>
-				<head>
-				 <title>404</title>
-				</head>
-				<body>
-				 <h1>Page Not Found</h1>
-				</body>
-				</html>"""
-NOT_IMPLEMENTED_HEADER = "HTTP/1.0 501 Not Implemented\r\nContent-Type: text/html\r\n\r\n"
+import time
+def get_time():
+	return time.strftime("%a, %d %b %Y %I:%M:%S %p %Z", time.gmtime())
+
+str_response = """<!DOCTYPE html>
+					<html>
+					<head>
+					 <title>404</title>
+					</head>
+					<body>
+					 <h1>Page Not Found</h1>
+					</body>
+					</html>"""
+content_length = len(str_response.encode('utf-8'))
+
+NOT_FOUND = """HTTP/1.0 404 Not Found\r\nContent-Type: text/html\r\nDate: """+ get_time() + """\r\nContent-Length: """ + str(content_length) + """\r\n\r\n""" + str_response
+
+NOT_IMPLEMENTED_HEADER = "HTTP/1.0 501 Not Implemented\r\nContent-Type: text/html\r\nDate: " + get_time() + "\r\n\r\n"
 def ok_header(text_type="text/html", content_length=0):
-	return "HTTP/1.0 200 OK\r\nContent-Type: " + text_type + "\r\nContent-Length: " + str(content_length) + "\r\n\r\n"
+	return "HTTP/1.0 200 OK\r\nContent-Type: " + text_type + "\r\nContent-Length: " + str(content_length) + "\r\nDate: " + get_time() + "\r\n\r\n"
