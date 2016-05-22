@@ -1,4 +1,4 @@
-from Constants import *
+from Headers import *
 
 class SortController(object):
 	"""
@@ -17,7 +17,6 @@ class SortController(object):
 					return NOT_FOUND
 			converted_list.sort()
 			values = converted_list
-		#TODO: Add content length and date
 		res = ""
 		for value in values:
 			res += str(value) + " "
@@ -32,7 +31,6 @@ class NamesController(object):
 		super(NamesController, self).__init__()
 
 	def index(self):
-		#TODO: Add content length and date
 		string_response =  """<!DOCTYPE html>
 				<html>
 				<head>

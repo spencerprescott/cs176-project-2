@@ -1,4 +1,3 @@
-#TODO: Add content length and date
 import time
 def get_time():
 	return time.strftime("%a, %d %b %Y %I:%M:%S %p %Z", time.gmtime())

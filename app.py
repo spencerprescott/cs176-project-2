@@ -1,8 +1,6 @@
 import sys
 from HttpServer import *
 from Routing import Router
-import pdb
-from pdb import set_trace as bp
 
 if __name__ == '__main__':
 	try:
