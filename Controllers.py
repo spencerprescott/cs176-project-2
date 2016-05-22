@@ -1,4 +1,5 @@
 from Constants import *
+import sys
 
 class SortController(object):
 	"""
@@ -18,10 +19,11 @@ class SortController(object):
 			converted_list.sort()
 			values = converted_list
 		#TODO: Add content length and date
-		res = ok_header("text/plain")
+		res = ""
 		for value in values:
 			res += str(value) + " "
-		return res
+		header = ok_header("text/plain", sys.getsizeof(res))
+		return header + res
 
 class NamesController(object):
 	"""
@@ -32,7 +34,7 @@ class NamesController(object):
 
 	def index(self):
 		#TODO: Add content length and date
-		return ok_header() + """<!DOCTYPE html>
+		string_response =  """<!DOCTYPE html>
 				<html>
 				<head>
 				 <title>names</title>
@@ -42,3 +44,5 @@ class NamesController(object):
 				 <p>Alok Gupta, 3579489</p>
 				</body>
 				</html>"""
+		content_length = sys.getsizeof(string_response)
+		return ok_header("text/html", content_length) + string_response

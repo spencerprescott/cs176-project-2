@@ -10,5 +10,5 @@ NOT_FOUND = """HTTP/1.0 404 Not Found\r\nContent-Type: text/html\r\n\r\n
 				</body>
 				</html>"""
 NOT_IMPLEMENTED_HEADER = "HTTP/1.0 501 Not Implemented\r\nContent-Type: text/html\r\n\r\n"
-def ok_header(text_type="text/html"):
-	return "HTTP/1.0 200 OK\r\nContent-Type: " + text_type + "\r\n\r\n"
+def ok_header(text_type="text/html", content_length=0):
+	return "HTTP/1.0 200 OK\r\nContent-Type: " + text_type + "\r\nContent-Length: " + str(content_length) + "\r\n\r\n"
