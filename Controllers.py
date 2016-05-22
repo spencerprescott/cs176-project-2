@@ -1,5 +1,4 @@
 from Constants import *
-import sys
 
 class SortController(object):
 	"""
@@ -22,7 +21,7 @@ class SortController(object):
 		res = ""
 		for value in values:
 			res += str(value) + " "
-		header = ok_header("text/plain", sys.getsizeof(res))
+		header = ok_header("text/plain", len(res.encode('utf-8')))
 		return header + res
 
 class NamesController(object):
@@ -44,5 +43,7 @@ class NamesController(object):
 				 <p>Alok Gupta, 3579489</p>
 				</body>
 				</html>"""
-		content_length = sys.getsizeof(string_response)
-		return ok_header("text/html", content_length) + string_response
+		content_length = len(string_response.encode('utf-8'))
+		header = ok_header("text/html", content_length)
+		header += string_response
+		return header
