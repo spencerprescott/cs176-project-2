@@ -39,6 +39,6 @@ class NamesController(object):
 				</head>
 				<body>
 				 <p>Spencer Prescott, 3270709</p>
-				 <p>Name 2, PERM 2</p>
+				 <p>Alok Gupta, 3579489</p>
 				</body>
 				</html>"""
