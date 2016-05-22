@@ -1,6 +1,9 @@
 import sys
 from HttpServer import *
 from Routing import Router
+import pdb
+from pdb import set_trace as bp
+
 
 if __name__ == '__main__':
 	try:
@@ -10,4 +13,4 @@ if __name__ == '__main__':
 		router.addRoute("sort/*", "SortController#sort")
 		HttpServer(router).listen(int(port_number))
 	except:
-		print "Error: Port number not included in argument list. Please run app as 'python app.py [PORT]'"
+		print "Error: Port number not included or invalid. Try again using a valid port. Run as 'python app.py [PORT]'"
