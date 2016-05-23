@@ -1,6 +1,8 @@
 import time
+from email.utils import formatdate
+
 def get_time():
-	return time.strftime("%a, %d %b %Y %I:%M:%S %p %Z", time.gmtime())
+	return formatdate(timeval=None, localtime=False, usegmt=True)
 
 str_response = """<!DOCTYPE html>
 					<html>

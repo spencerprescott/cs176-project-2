@@ -17,7 +17,7 @@ class HttpServer(object):
 		self.router = router
 
 	def listen(self, port):
-		""" 
+		"""
 		Binds socket to a port on localhost and 127.0.0.1
 		Listens for HTTP Requests and responds
 		"""
@@ -76,5 +76,7 @@ class HttpServer(object):
 		self.inputs.remove(s)
 		s.close()
 		# remove the message queue
-		del self.message_queues[s]
-		del self.message_entireties[s]
+		if s in self.message_queues:
+			del self.message_queues[s]
+		if s in self.message_entireties:
+			del self.message_entireties[s]
