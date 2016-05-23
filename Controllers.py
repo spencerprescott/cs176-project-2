@@ -11,6 +11,8 @@ class SortController(object):
 		if len(values) > 0:
 			converted_list = []
 			for x in values:
+				if x == "" or x == " ":
+					continue
 				try:
 					converted_list.append(int(x))
 				except Exception, e:
